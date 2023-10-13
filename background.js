@@ -52,15 +52,15 @@ const Update = async () => {
 
             urls.map(old => {
                 if (old.url === item.url) {
-                    if (old.count !== item.count) {
-                        chrome.notifications.create(`notify-${index}`, {
+                    if (old.count !== item.count || item.count==2) {
+                        chrome.notifications.create(`my-notification-${Date.now()}`, {
                             type: 'basic',
-                            iconUrl: 'new.png',
+                            iconUrl: "img/new.png",
                             title: 'فروش جدید!',
-                            contextMessage: `${item.name}`,
+                            contextMessage: item.name,
                             priority: 2,
-                            message: ` فروش جدید: ${item.count - old.count}${"\n"}فروش کل: ${parseInt(item.count).toLocaleString("en-US")}`,
-                        })
+                            message: ` فروش جدید: ${item.count - old.count}\nفروش کل: ${item.count}`,
+                        });
                     }
                 }
             })

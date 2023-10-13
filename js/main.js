@@ -71,23 +71,31 @@ window.addEventListener("load", function () {
             }
 
             rows.map((item, index) => {
-                urls.map(old => {
+                urls.map((old) => {
                     if (old.url === item.url) {
                         if (old.count !== item.count) {
-                            chrome.notifications.create(`notify-${index}`, {
-                                type: 'basic',
-                                iconUrl: '../new.png',
-                                title: 'فروش جدید!',
-                                contextMessage: `${item.name}`,
+                            let result = '';
+                            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                            const charactersLength = characters.length;
+                            for (let i = 0; i < 10; i++) {
+                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                            }
+
+                            chrome.notifications.create(`my-notification-${Date.now()}`, {
+                                iconUrl: '../img/new.png',
+                                type: "basic",
+                                contextMessage: item.name,
                                 priority: 2,
-                                message: ` فروش جدید: ${item.count - old.count}${"\n"}فروش کل: ${parseInt(item.count).toLocaleString("en-US")}`,
+                                message: ` فروش جدید: ${item.count - old.count}\nفروش کل: ${item.count}`,
+                                title: 'فروش جدید!',
+                            }, function(context) {
+                                console.log("Last error:", chrome.runtime.lastError);
                             });
-                            new Audio('../notification.mp3').play();
+                            new Audio('../audio/notification.mp3').play();
                         }
                     }
-                })
-
-            })
+                });
+            });
 
             // Update
             if (rows.length === urls.length) {
