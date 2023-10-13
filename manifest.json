@@ -1,0 +1,32 @@
+{
+  "name": "Rtl theme product sales notification",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "alarms",
+    "storage",
+    "notifications"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "badge.svg",
+        "notification.mp3"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
+  "action": {
+    "default_title": "Rtl theme product sales notification",
+    "default_icon": "badge.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "badge.png",
+    "48": "badge.png",
+    "128": "badge.png"
+  }
+}

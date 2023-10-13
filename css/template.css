@@ -1,0 +1,75 @@
+@import "bootstrap-5.0.2-dist/css/bootstrap.rtl.min.css";
+@font-face {
+  font-family: Vazir;
+  src: url("/fonts/vazir/Vazir-FD.eot");
+  src: url("/fonts/vazir/Vazir-FD.eot?#iefix") format("embedded-opentype"), url("/fonts/vazir/Vazir-FD.woff2") format("woff2"), url("/fonts/vazir/Vazir-FD.woff") format("woff"), url("/fonts/vazir/Vazir-FD.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("/fonts/vazir/Vazir-Bold-FD.eot");
+  src: url("/fonts/vazir/Vazir-Bold-FD.eot?#iefix") format("embedded-opentype"), url("/fonts/vazir/Vazir-Bold-FD.woff2") format("woff2"), url("/fonts/vazir/Vazir-Bold-FD.woff") format("woff"), url("/fonts/vazir/Vazir-Bold-FD.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("/fonts/vazir/Vazir-Thin-FD.eot");
+  src: url("/fonts/vazir/Vazir-Thin-FD.eot?#iefix") format("embedded-opentype"), url("/fonts/vazir/Vazir-Thin-FD.woff2") format("woff2"), url("/fonts/vazir/Vazir-Thin-FD.woff") format("woff"), url("/fonts/vazir/Vazir-Thin-FD.ttf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("/fonts/vazir/Vazir-Light-FD.eot");
+  src: url("/fonts/vazir/Vazir-Light-FD.eot?#iefix") format("embedded-opentype"), url("/fonts/vazir/Vazir-Light-FD.woff2") format("woff2"), url("/fonts/vazir/Vazir-Light-FD.woff") format("woff"), url("/fonts/vazir/Vazir-Light-FD.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Vazir;
+  src: url("/fonts/vazir/Vazir-Medium-FD.eot");
+  src: url("/fonts/vazir/Vazir-Medium-FD.eot?#iefix") format("embedded-opentype"), url("/fonts/vazir/Vazir-Medium-FD.woff2") format("woff2"), url("/fonts/vazir/Vazir-Medium-FD.woff") format("woff"), url("/fonts/vazir/Vazir-Medium-FD.ttf") format("truetype");
+  font-weight: 500;
+}
+body {
+  font-family: Vazir, serif;
+  min-width: 400px;
+  min-height: 400px;
+  direction: rtl;
+  font-size: 14px;
+  padding: 15px;
+  background-color: #f8f9fa;
+}
+body select {
+  line-height: 22px;
+  height: 35px;
+}
+body table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+  transition: height 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
+}
+body table > :not(caption) > * > * {
+  border-bottom-width: 0 !important;
+}
+body table h2 {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0;
+  max-width: 300px;
+}
+body table h2 a {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+body input#url {
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+/*# sourceMappingURL=template.css.map */
