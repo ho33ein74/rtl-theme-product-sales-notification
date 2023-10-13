@@ -74,20 +74,13 @@ window.addEventListener("load", function () {
                 urls.map((old) => {
                     if (old.url === item.url) {
                         if (old.count !== item.count) {
-                            let result = '';
-                            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                            const charactersLength = characters.length;
-                            for (let i = 0; i < 10; i++) {
-                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                            }
-
                             chrome.notifications.create(`my-notification-${Date.now()}`, {
                                 iconUrl: '../img/new.png',
                                 type: "basic",
                                 contextMessage: item.name,
                                 priority: 2,
                                 message: ` فروش جدید: ${item.count - old.count}\nفروش کل: ${item.count}`,
-                                title: 'فروش جدید!',
+                                title: 'فروش جدید!'
                             }, function(context) {
                                 console.log("Last error:", chrome.runtime.lastError);
                             });

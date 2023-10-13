@@ -59,7 +59,7 @@ const Update = async () => {
                             title: 'فروش جدید!',
                             contextMessage: item.name,
                             priority: 2,
-                            message: ` فروش جدید: ${item.count - old.count}\nفروش کل: ${item.count}`,
+                            message: ` فروش جدید: ${item.count - old.count}\nفروش کل: ${item.count}`
                         });
                     }
                 }
