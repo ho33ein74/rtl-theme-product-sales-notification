@@ -12,7 +12,7 @@ const ORequest = async (url) => {
 
     request = await request.json();
 
-    if (!request.hasOwnProperty('status') || request.status !== 200)
+    if (!request.hasOwnProperty('status') || !request.status)
         return null;
 
     return request.item;

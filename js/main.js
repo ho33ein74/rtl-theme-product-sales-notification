@@ -7,9 +7,7 @@ window.addEventListener("load", function () {
         document.querySelector('button.create-url').textContent = 'در حال بررسی...';
         document.querySelector('button.create-url').setAttribute('disabled', true);
 
-        let request = await fetch(`https://api.unixscript.ir/rtl-theme/checker.php?url=${url}`, {
-            mode: 'no-cors'
-        });
+        let request = await fetch(`https://api.unixscript.ir/rtl-theme/checker.php?url=${url}`);
 
         // remove loading
         document.querySelector('button.create-url').textContent = 'ایجاد';
@@ -22,7 +20,7 @@ window.addEventListener("load", function () {
             return null;
         }
 
-        if (request.status !== 200) {
+        if (!request.status) {
             alert(request.msg);
             return null;
         }
@@ -38,7 +36,7 @@ window.addEventListener("load", function () {
 
         request = await request.json();
 
-        if (!request.hasOwnProperty('status') || request.status !== 200)
+        if (!request.hasOwnProperty('status') || !request.status)
             return null;
 
         return request.item;
@@ -171,7 +169,7 @@ window.addEventListener("load", function () {
 
             urls.map((item, index) => {
                 if (item && item.hasOwnProperty('url'))
-                    rows.push(`<tr><td><img src="${item.image}" alt="${item.name}" width="24"></td><td class="text-start"><h2>:: <a href="${item.url}" target="_blank">${item.name}</a></h2></td>
+                    rows.push(`<tr><td><img src="${item.image}" alt="${item.name}" width="24"></td><td class="text-start"><h2><a href="${item.url}" target="_blank">${item.name}</a></h2></td>
             <td><span>${parseInt(item.count).toLocaleString("en-US")}</span></td><td>
             <span type="button" class="badge small bg-danger remove" data-id="${index}">${'حذف'}</span></td></tr>`)
             });
