@@ -8,13 +8,13 @@
 </p>
 	
   <p align="center">
-  <img src="https://raw.githubusercontent.com/habibi-dev/rtl-theme-product-sales-notification/master/1.png" />
+  <img src="https://raw.githubusercontent.com/ho33ein74/rtl-theme-product-sales-notification/master/1.png" />
   </p>
   <p align="center">
-  <img src="https://raw.githubusercontent.com/habibi-dev/rtl-theme-product-sales-notification/master/2.png" />
+  <img src="https://raw.githubusercontent.com/ho33ein74/rtl-theme-product-sales-notification/master/2.png" />
   </p>
   <p align="center">
-  <img src="https://raw.githubusercontent.com/habibi-dev/rtl-theme-product-sales-notification/master/3.png" />
+  <img src="https://raw.githubusercontent.com/ho33ein74/rtl-theme-product-sales-notification/master/3.png" />
   </p>
 	<p>
   سپس محل فولدر پروژه را وارد کنید و لذت ببرید.
