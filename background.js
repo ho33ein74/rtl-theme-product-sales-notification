@@ -52,7 +52,7 @@ const Update = async () => {
 
             urls.map(old => {
                 if (old.url === item.url) {
-                    if (old.count !== item.count || item.count==2) {
+                    if (old.count !== item.count) {
                         chrome.notifications.create(`my-notification-${Date.now()}`, {
                             type: 'basic',
                             iconUrl: "img/new.png",
