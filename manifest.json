@@ -14,6 +14,7 @@
     {
       "resources": [
         "badge.svg",
+        "new.png",
         "notification.mp3"
       ],
       "use_dynamic_url": true

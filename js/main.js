@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
         request = await request.json();
 
         if (!request.hasOwnProperty('status')) {
-            alert('عملیات با خطا روبرو شد.')
+            alert('عملیات با خطا روبرو شد.');
             return null;
         }
 
@@ -31,8 +31,7 @@ window.addEventListener("load", function () {
 
     // request only
     const ORequest = async (url) => {
-
-        let request = await fetch(`https://api.unixscript.ir/rtl-theme/checker.php?url=${url}`);
+        let request = await fetch(`https://api.unixscript.ir/rtl-theme/checker.php?url=${url}&type=check`);
 
         request = await request.json();
 
@@ -40,7 +39,6 @@ window.addEventListener("load", function () {
             return null;
 
         return request.item;
-
     }
 
     const Update = async () => {
@@ -53,34 +51,37 @@ window.addEventListener("load", function () {
 
             let rows = [];
 
-            await Promise.all(urls.map(async (item, index) => {
-                if (item && item.hasOwnProperty('url')) {
+            if (navigator.onLine) {
+                await Promise.all(urls.map(async (item, index) => {
+                    if (item && item.hasOwnProperty('url')) {
+                            let request = await ORequest(item.url);
 
-                    let request = await ORequest(item.url);
+                            if (!request)
+                                return null;
 
-                    if (!request)
-                        return null;
-
-                    rows.push({
-                        ...request,
-                        url: item.url
-                    })
-                }
-            }));
+                            rows.push({
+                                ...request,
+                                url: item.url
+                            })
+                    }
+                }));
+            } else {
+                alert('ارتباط اینترنت شما قطع گردید!');
+                return null;
+            }
 
             rows.map((item, index) => {
-
                 urls.map(old => {
                     if (old.url === item.url) {
                         if (old.count !== item.count) {
                             chrome.notifications.create(`notify-${index}`, {
                                 type: 'basic',
-                                iconUrl: item.image,
+                                iconUrl: '../new.png',
                                 title: 'فروش جدید!',
                                 contextMessage: `${item.name}`,
                                 priority: 2,
                                 message: ` فروش جدید: ${item.count - old.count}${"\n"}فروش کل: ${parseInt(item.count).toLocaleString("en-US")}`,
-                            })
+                            });
                             new Audio('../notification.mp3').play();
                         }
                     }

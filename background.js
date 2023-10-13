@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.alarms.create("rtl-theme-checker", {
-        delayInMinutes: 1,
-        periodInMinutes: 1
+        delayInMinutes: 10,
+        periodInMinutes: 10
     });
 });
 
@@ -32,16 +32,19 @@ const Update = async () => {
 
         await Promise.all(urls.map(async (item, index) => {
             if (item && item.hasOwnProperty('url')) {
+                if (navigator.onLine) {
+                    let request = await ORequest(item.url);
 
-                let request = await ORequest(item.url);
+                    if (!request)
+                        return null;
 
-                if (!request)
+                    rows.push({
+                        ...request,
+                        url: item.url
+                    })
+                } else {
                     return null;
-
-                rows.push({
-                    ...request,
-                    url: item.url
-                })
+                }
             }
         }));
 
@@ -52,7 +55,7 @@ const Update = async () => {
                     if (old.count !== item.count) {
                         chrome.notifications.create(`notify-${index}`, {
                             type: 'basic',
-                            iconUrl: item.image,
+                            iconUrl: 'new.png',
                             title: 'فروش جدید!',
                             contextMessage: `${item.name}`,
                             priority: 2,
@@ -73,7 +76,6 @@ const Update = async () => {
 
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === "rtl-theme-checker") {
-        console.log(alarm);
         Update();
     }
 });
